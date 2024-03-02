@@ -1,0 +1,41 @@
+@import "../../index.scss";
+
+.chat {
+    position: relative;
+    // left: 200px;
+    top: 50px;
+    display: flex;
+    // width: calc(100vw - 200px);
+    width: 100vw;
+    // gap: 10px;
+    height: calc(100vh - 50px);
+    background-color: #F7F0EF;
+}
+
+.seperator {
+    &-column {
+        background-color: #000;
+        // height: 100%;
+        width: 1px;
+    }
+
+    &-row {
+        background-color: #000;
+        width: 100%;
+        height: 1px;
+    }
+}
+
+.offline {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.online {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: green;
+}

@@ -1,0 +1,89 @@
+@import "../../../index.scss";
+
+.login {
+    width: 600px;
+    padding-top: 40px;
+
+    &-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px auto;
+        position: relative;
+
+        h2 {
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            font-size: 40px;
+        }
+    }
+
+    &-underline {
+        height: 6px;
+        background-color: $blue-color;
+        width: 60px;
+    }
+
+    &-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &-field {
+        display: flex;
+        flex-direction: column;
+        margin: auto 20px;
+        gap: 4px;
+
+        input {
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            background-color: #eee;
+            font-size: 20px;
+        }
+    }
+
+    &-error {
+        color: red;
+    }
+
+    &-note {
+        text-align: center;
+        letter-spacing: 1px;
+
+        span {
+            color: $blue-color;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &-button {
+        text-align: center;
+        margin-bottom: 20px;
+
+        button {
+            padding: 12px 40px;
+            border: 1px solid $blue-color;
+            border-radius: 10px;
+            background-color: $blue-color;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                background-color: #fff;
+                color: $blue-color;
+            }
+        }
+    }
+}
+
+.input-error {
+    border-color: red;
+}

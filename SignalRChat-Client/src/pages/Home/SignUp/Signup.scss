@@ -1,0 +1,101 @@
+@import "../../../index.scss";
+
+.signup {
+    width: 500px;
+    height: fit-content;
+    // max-height: 800px;
+    // overflow: auto;
+    padding-top: 10px;
+
+    &-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px auto;
+
+        h2 {
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            font-size: 40px;
+        }
+    }
+
+    &-form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &-name {
+        display: flex;
+        justify-content: space-between;
+        margin: auto 20px;
+        gap: 5px;
+
+        span {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+
+            input {
+                padding: 10px;
+                border: 1px solid #eee;
+                border-radius: 10px;
+                background-color: #eee;
+                font-size: 16px;
+            }
+        }
+    }
+
+    &-field {
+        display: flex;
+        flex-direction: column;
+        margin: 0 20px;
+        gap: 2px;
+
+        input {
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            background-color: #eee;
+            font-size: 16px;
+        }
+    }
+
+    &-error {
+        color: red;
+    }
+
+    &-note {
+        text-align: center;
+        letter-spacing: 1px;
+
+        a {
+            text-decoration: none;
+
+            &:hover {
+                color: red;
+            }
+        }
+    }
+
+    &-button {
+        text-align: center;
+        margin-bottom: 20px;
+
+        button {
+            padding: 12px 40px;
+            border: 1px solid $blue-color;
+            border-radius: 10px;
+            background-color: $blue-color;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                background-color: #fff;
+                color: $blue-color;
+            }
+        }
+    }
+}

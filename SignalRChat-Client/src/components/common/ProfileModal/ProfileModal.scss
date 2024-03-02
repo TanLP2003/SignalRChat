@@ -1,0 +1,29 @@
+@import '../../../index.scss';
+
+.profile {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+
+    img {
+        object-fit: cover;
+        width: 150px;
+        height: 150px;
+        max-width: 150px;
+        max-height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    &-info {
+        flex-grow: 1;
+
+        p {
+            margin: 8px 0;
+            font-size: 18px;
+            color: #333;
+        }
+    }
+
+}

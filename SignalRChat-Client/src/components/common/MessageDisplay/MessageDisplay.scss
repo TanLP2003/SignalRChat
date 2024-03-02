@@ -1,0 +1,46 @@
+.message {
+    &-text {
+        // border: 2px solid #000;
+        border-radius: 5px;
+        word-wrap: break-word;
+        max-width: 400px;
+        padding: 6px 12px;
+        position: relative;
+    }
+
+    &-img {
+        object-fit: cover;
+
+        img {
+            height: 100px;
+            width: 100px;
+        }
+    }
+
+    &-video {
+        margin: 0;
+        // padding: 2px;
+        background-color: #eee;
+        object-fit: cover;
+
+        video {
+            height: fit-content;
+            width: 400px;
+        }
+    }
+
+    &-file {
+        width: fit-content;
+        max-width: 400px;
+        height: fit-content;
+        word-break: break-all;
+        padding: 20px;
+        background-color: #eee;
+        border-radius: 20px;
+
+        a {
+            color: #000;
+            // text-decoration: none;
+        }
+    }
+}

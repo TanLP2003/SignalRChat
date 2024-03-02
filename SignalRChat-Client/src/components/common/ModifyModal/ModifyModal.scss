@@ -1,0 +1,17 @@
+@import '../../../index.scss';
+
+.modify {
+    // width: 500px;
+    padding: 20px;
+
+    &-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &-name {
+        display: flex;
+        gap: 10px;
+    }
+}

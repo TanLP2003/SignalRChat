@@ -1,0 +1,52 @@
+.category {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+    padding: 5px;
+    background-color: #eee;
+    border-radius: 10px;
+    justify-content: space-around;
+
+    &-item {
+        padding: 12px 30px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        div {
+            background-color: #cfcfcf;
+            border-radius: 50%;
+            padding: 5px;
+
+            p {
+                min-height: 20px;
+                min-width: 20px;
+                text-align: center;
+            }
+        }
+
+        &:hover {
+            background-color: #fff;
+            border-radius: 10px;
+
+            div {
+                background-color: #0184FF;
+                color: #fff;
+            }
+        }
+
+
+    }
+}
+
+.selected {
+    background-color: #fff;
+    border-radius: 10px;
+
+    div {
+        background-color: #0184FF;
+        color: #fff;
+    }
+}
