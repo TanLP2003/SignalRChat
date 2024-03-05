@@ -1,2 +1,2 @@
 # SignalRChat
-A web chat application built with ASP.NET Core SignalR.
+A web chat application utilizing Clean Architecture and ASP.NET Core SignalR.
