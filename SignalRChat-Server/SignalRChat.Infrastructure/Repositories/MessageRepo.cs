@@ -24,7 +24,7 @@ namespace SignalRChat.Infrastructure.Repositories
         }
         public async Task<List<Message>> GetMessageOfUser(Guid userId)
         {
-            var messageModels = await _dbContext.Messages
+            var messageModels = await _dbContext.Messages.AsNoTracking()
                 .Where(m => m.SenderId ==  userId || m.ReceiverId == userId)
                 .OrderBy(m => m.TimeStamp)
                 .ToListAsync();
@@ -43,7 +43,7 @@ namespace SignalRChat.Infrastructure.Repositories
 
         public async Task<Message> GetLatestMessageWithUser(Guid firstUserId, Guid secondUserId)
         {
-            var message = await _dbContext.Messages
+            var message = await _dbContext.Messages.AsNoTracking()
                 .Where(m => (m.SenderId == firstUserId && m.ReceiverId == secondUserId)
                             || (m.SenderId == secondUserId && m.ReceiverId == firstUserId)
                 )

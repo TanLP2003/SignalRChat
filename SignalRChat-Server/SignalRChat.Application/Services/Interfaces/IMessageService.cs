@@ -12,6 +12,5 @@ namespace SignalRChat.Application.Services.Interfaces
         Task<Message> SaveMessage(Message message);
         Task<List<Message>> GetMessagesOfUser(Guid userId);
         Task<Message> GetLatestMessageBetweenUsers(Guid firstUserId, Guid secondUserId);
-        //Task DeleteMessage(Guid messageId);
     }
 }

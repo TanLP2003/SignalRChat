@@ -62,7 +62,6 @@ export const useSignalR = () => {
         const newConnection = new HubConnectionBuilder()
             .withUrl(`${SERVER_URL}/chat`, {
                 withCredentials: true,
-                // accessTokenFactory: () => accessToken!
                 httpClient: new CustomHttpClient()
             })
             .configureLogging(LogLevel.Information)
@@ -74,23 +73,17 @@ export const useSignalR = () => {
         })
     }, [accessToken]);
     const onUserStatusReceived = async (userId: string, status: string) => {
-        console.log("Received Notification: ", userId);
-        console.log("User status ", status);
         if (status === "online") {
-            console.log("Receive online status of user: ", userId);
             dispatch(addOnLineUser(userId));
             await connection!.invoke("SendMyStatusToUserJustLogin", userId);
-            console.log("Sending my status to user: ", userId);
         }
         else dispatch(removeOffLineUser(userId));
     }
     const onMessageReceived = (message: Message) => {
-        console.log("Message: ", message);
         dispatch(addMessage(message));
         dispatch(getContactedUsers(userId!));
     }
     const onOnlineUsersReceivedWhenJustLogined = async (userId: string) => {
-        console.log("Already online user: ", userId);
         dispatch(addOnLineUser(userId));
     }
     const onNewUserSignUp = () => {
@@ -102,13 +95,10 @@ export const useSignalR = () => {
                 if (connection) {
                     const storedConnectionId = localStorage.getItem('connectionId');
                     if (storedConnectionId) {
-                        console.log("Previous connection stopped...: ", storedConnectionId);
                         await connection.stop();
                     }
 
                     await connection.start();
-                    console.log("Connected ...");
-                    console.log("ConnectionId: ", connection.connectionId);
 
                     setConnected(true);
 
@@ -130,10 +120,8 @@ export const useSignalR = () => {
                 connection?.off("ReceiveUserStatus", onUserStatusReceived);
                 connection?.off("ReceiveMessage", onMessageReceived);
                 connection.off("ReceiveOnlineUsersWhenJustLogined", onOnlineUsersReceivedWhenJustLogined);
-                // const connectionIdStop = connection.connectionId;
                 connection?.stop()
                     .then(() => {
-                        // localStorage.setItem(`ConnectionId ${connectionIdStop}`, 'stop');
                         console.log("Connection stop...");
                         setConnected(false);
                     })
@@ -152,10 +140,8 @@ export const useSignalR = () => {
             }
             const onSendFileMessage = async (fileMessage: FileMessage) => {
                 const message = await connection.invoke("SendFileMessage", JSON.stringify(fileMessage));
-                console.log(fileMessage);
                 dispatch(addMessage(message));
                 dispatch(getContactedUsers(userId!));
-                // console.log(message);
             }
 
             setSendMessage(_ => onSendMessage);

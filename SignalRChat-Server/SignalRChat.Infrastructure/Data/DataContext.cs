@@ -44,7 +44,6 @@ namespace SignalRChat.Infrastructure.Data
             builder.Entity<MessageModel>()
                .HasOne(m => m.Sender)
                .WithMany()
-               //.WithMany(u => u.MessagesSent)
                .HasForeignKey(m => m.SenderId)
                .OnDelete(DeleteBehavior.Cascade);
 

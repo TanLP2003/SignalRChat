@@ -48,7 +48,7 @@ namespace SignalRChat.Infrastructure.Repositories
         {
             var userModel = await _userManager.FindByEmailAsync(email);
             if (userModel == null){
-                throw new BadRequestException($"User with name : {email} not exist");
+                throw new BadRequestException($"Email : {email} not exist");
             }else if (!await _userManager.CheckPasswordAsync(userModel, password))
             {
                 throw new BadRequestException("Password is not correct");
@@ -75,7 +75,7 @@ namespace SignalRChat.Infrastructure.Repositories
 
         public async Task<bool> ChangePassword(string email, string currentPassword, string newPassword)
         {
-            var userModel = await _userManager.FindByEmailAsync(email) ?? throw new BadRequestException($"User with name : {email} not exist");
+            var userModel = await _userManager.FindByEmailAsync(email) ?? throw new BadRequestException($"Email : {email} not exist");
             var result = await _userManager.ChangePasswordAsync(userModel, currentPassword, newPassword);
             if (!result.Succeeded)
             {
@@ -122,7 +122,7 @@ namespace SignalRChat.Infrastructure.Repositories
         }
         public async Task<List<User>> GetUsers(Guid userId)
         {
-            var allUser = await _dbContext.Users
+            var allUser = await _dbContext.Users.AsNoTracking()
                 .Where(user => user.Id != userId)
                 .ToListAsync();
             return _mapper.Map<List<User>>(allUser);

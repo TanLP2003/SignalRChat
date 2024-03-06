@@ -33,7 +33,7 @@ namespace SignalRChat.Infrastructure.Repositories
         }
         public async Task DeleteByUserId(Guid userId)
         {
-            var refreshToken = await _context.Set<RefreshTokenModel>().Where(r => r.UserId == userId).FirstOrDefaultAsync();
+            var refreshToken = await _context.RefreshTokens.Where(r => r.UserId == userId).FirstOrDefaultAsync();
             if(refreshToken != null)
             {
                 _context.RefreshTokens.Remove(refreshToken);
